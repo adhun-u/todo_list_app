@@ -34,6 +34,27 @@ class AppTheme {
       selectionColor: lightSecondary,
       selectionHandleColor: darkPrimary,
     ),
+    datePickerTheme: DatePickerThemeData(
+      cancelButtonStyle: ButtonStyle(
+        foregroundColor: WidgetStatePropertyAll(darkPrimary),
+      ),
+      confirmButtonStyle: ButtonStyle(
+        foregroundColor: WidgetStatePropertyAll(darkPrimary),
+      ),
+
+      dayForegroundColor: WidgetStateProperty.resolveWith((states) {
+        if (states.contains(WidgetState.selected)) {
+          return lightPrimary;
+        }
+        return null;
+      }),
+      dayBackgroundColor: WidgetStateProperty.resolveWith((states) {
+        if (states.contains(WidgetState.selected)) {
+          return darkPrimary;
+        }
+        return null;
+      }),
+    ),
   );
 
   static final ThemeData darkTheme = ThemeData(
@@ -59,6 +80,26 @@ class AppTheme {
       cursorColor: lightPrimary,
       selectionColor: darkSecondary,
       selectionHandleColor: lightPrimary,
+    ),
+    datePickerTheme: DatePickerThemeData(
+      cancelButtonStyle: ButtonStyle(
+        foregroundColor: WidgetStatePropertyAll(lightPrimary),
+      ),
+      confirmButtonStyle: ButtonStyle(
+        foregroundColor: WidgetStatePropertyAll(lightPrimary),
+      ),
+      dayForegroundColor: WidgetStateProperty.resolveWith((states) {
+        if (states.contains(WidgetState.selected)) {
+          return darkPrimary;
+        }
+        return null;
+      }),
+      dayBackgroundColor: WidgetStateProperty.resolveWith((states) {
+        if (states.contains(WidgetState.selected)) {
+          return lightPrimary;
+        }
+        return null;
+      }),
     ),
   );
 }
